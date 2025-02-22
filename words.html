@@ -1,0 +1,32 @@
+---
+layout: default
+title: My Words
+---
+
+
+<div class="container mt-4">
+    <button class="btn btn-primary" onclick="toggleFullscreen()">Phóng To</button>
+    <div id="zoomContent" class="mt-3">
+        <div id="dataArea">
+            <p>Đây là nội dung cần phóng to!</p>
+        </div>
+        <div id="controlArea">
+            <button class="m-3 btn btn-primary">Back</button>
+            <button class="m-3 btn btn-primary">Next</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleFullscreen() {
+        let elem = document.getElementById("zoomContent");
+
+        if (!document.fullscreenElement) {
+            elem.requestFullscreen().catch(err => {
+                alert(`Error: ${err.message}`);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    }
+</script>
